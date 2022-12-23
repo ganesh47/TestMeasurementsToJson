@@ -3,9 +3,14 @@ import XCTest
 
 final class TestMeasurementsToJsonTests: XCTestCase {
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(TestMeasurementsToJson().text, "Hello, World!")
+        self.measureAndLog {
+            self.measure(metrics: [XCTCPUMetric(), XCTClockMetric(), XCTMemoryMetric(), XCTStorageMetric()]) {
+                (0...10000).forEach { _ in
+                    XCTAssertTrue(true)
+                }
+
+            }
+        }
+
     }
 }
