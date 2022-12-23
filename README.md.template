@@ -1,0 +1,14 @@
+# TestMeasurementsToJson
+
+A helper to capture test measurement-metrics to JSON
+
+####  Detailed test-coverage (updated by CI)
+<pre>
+$COVERAGE_TEXT
+</pre>
+
+#### Compiler warnings (updated by CI)
+<pre>
+$COMPILER_WARNINGS
+</pre>
+

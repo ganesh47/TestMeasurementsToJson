@@ -1,0 +1,26 @@
+name: Build and test 99 problems with swift
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: "5.7"
+      - uses: actions/checkout@v3
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test --enable-code-coverage
+      - name: Generate HTML code-coverage report
+        run: bash ./Tools/coverage.sh
+        shell: bash
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v8
+        with:
+          author_name: ganesh47
+          author_email: 22994026+ganesh47@users.noreply.github.com
+          message: 'CI: Adding coverage'
+          add: 'code-coverage-report.html README.md'
