@@ -14,7 +14,6 @@ extension XCTest {
                 return
             }
             block()
-            measurerParser.semaphore.wait()
         }
 
     }

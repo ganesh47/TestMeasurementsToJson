@@ -4,7 +4,6 @@ public class MeasureParser {
     let pipe: Pipe = Pipe()
     let regex: NSRegularExpression?
     let results: NSMutableDictionary = NSMutableDictionary()
-    let semaphore = DispatchSemaphore(value: 0)
     init() {
         regex = try? NSRegularExpression(
                 pattern: "measured \\[(.*), (.*)\\] average: ([0-9\\.]*),",
@@ -25,7 +24,6 @@ public class MeasureParser {
                 self.fetchAndSaveMetrics(path,str)
                 if ((str as NSString?)?.cString(using: String.Encoding.utf8.rawValue)) != nil {
                     print("\(str)")
-                    self.semaphore.signal()
                 }
             }
 
