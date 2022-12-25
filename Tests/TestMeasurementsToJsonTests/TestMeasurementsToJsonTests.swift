@@ -13,7 +13,7 @@ final class TestMeasurementsToJsonTests: XCTestCase {
     }
     func testFM(){
         do {
-            let dir: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last! as URL
+            let dir: URL = FileManager.default.temporaryDirectory
             let url = dir.appendingPathComponent("logFile.txt")
             try "Test \(Date())".appendLineToURL(fileURL: url as URL)
             let result = try String(contentsOf: url as URL, encoding: String.Encoding.utf8)
