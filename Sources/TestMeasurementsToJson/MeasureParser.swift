@@ -56,6 +56,7 @@ public class MeasureParser {
         let jsonData = try! JSONSerialization.data(withJSONObject: results, options: JSONSerialization.WritingOptions.prettyPrinted)
         let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
         let dir: URL = FileManager.default.temporaryDirectory
+        print("****")
         do {
             try jsonString.appendToURL(fileURL: dir.appendingPathComponent(path))
             print("Saved to \(dir.appendingPathComponent(path))")

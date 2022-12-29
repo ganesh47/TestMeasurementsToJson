@@ -16,7 +16,7 @@ final class TestMeasurementsToJsonTests: XCTestCase {
             let dir: URL = FileManager.default.temporaryDirectory
             let url = dir.appendingPathComponent("logFile.txt")
             try "Test \(Date())".appendLineToURL(fileURL: url as URL)
-            let result = try String(contentsOf: url as URL, encoding: String.Encoding.utf8)
+            _ = try String(contentsOf: url as URL, encoding: String.Encoding.utf8)
         }
         catch {
             XCTAssertTrue(false)
