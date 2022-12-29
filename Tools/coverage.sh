@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-for file in .build/debug/{List,Numbers}.build/*.o
+for file in .build/debug/{TestMeasurementsToJson}.build/*.o
 do
   objectArg="${objectArg} --object $file"
 done
